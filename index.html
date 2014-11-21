@@ -37,7 +37,8 @@
 
             <section>
                 <ul class="cards">
-                    <li class="card" ng-repeat="employee in employees | filter:$scope.search | orderBy:order">
+                    <!-- if the specified employee sort field is the same between two or more employees, will sort by first name, and then last name -->
+                    <li class="card" ng-repeat="employee in employees | filter:$scope.search | orderBy:[order, 'firstName', 'lastName']">
                         <img ng-src="{{employee.picUrl}}" alt="picture of {{employee.firstName}} {{employee.lastName}}">
                         <div class="details">
                             <h2 class="name">{{employee.firstName}} {{employee.lastName}}</h2>
